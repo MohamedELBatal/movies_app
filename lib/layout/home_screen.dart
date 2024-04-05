@@ -20,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+      BottomNavigationBar(
         currentIndex:index,
           showSelectedLabels: true,
           showUnselectedLabels: true,
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
   List<Widget> tabs = [
-    HomeTab(results: [],),
+    HomeTab(results: const [],),
     const SearchTab(),
     const BrowseTab(),
     const WatchListTab(),
