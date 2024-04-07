@@ -1,4 +1,4 @@
 class AppString{
 
-  static const String apikey = "x-api-key";
+  static const String apikey = "Authorization";
 }
