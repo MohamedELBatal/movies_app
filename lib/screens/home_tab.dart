@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/models/SourceResponse.dart';
+import 'package:movies_app/screens/widgets/movie_item.dart';
 import 'package:movies_app/shared/network/remote/api_manager.dart';
 import 'package:movies_app/shared/network/remote/endPoint.dart';
 
@@ -25,8 +26,10 @@ class HomeTab extends StatelessWidget {
             }
             var results = snapshot.data?.results??[];
             return Expanded(
-              child: ListView.builder(itemBuilder: (context, index) {
-                return Text("${results[index].title}");
+              child: ListView.separated(
+                separatorBuilder: (context, index) => SizedBox(height: 15,),
+                itemBuilder: (context, index) {
+                return MovieItem(results : results[index]);
               },itemCount: results.length,),
             );
           }, ),
