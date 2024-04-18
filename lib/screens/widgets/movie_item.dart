@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/models/MoviesDataModel.dart';
+import 'package:movies_app/features/home/data/models/PopularModel.dart';
+
+
 
 class MovieItem extends StatelessWidget {
   Results results;

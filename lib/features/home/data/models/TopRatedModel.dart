@@ -1,11 +1,11 @@
-class SourceResponse {
-  SourceResponse({
+class TopRatedModel {
+  TopRatedModel({
       this.page, 
       this.results, 
       this.totalPages, 
       this.totalResults,});
 
-  SourceResponse.fromJson(dynamic json) {
+  TopRatedModel.fromJson(dynamic json) {
     page = json['page'];
     if (json['results'] != null) {
       results = [];

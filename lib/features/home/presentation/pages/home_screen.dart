@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/models/SourceResponse.dart';
-import 'package:movies_app/screens/browse_tab.dart';
-import 'package:movies_app/screens/search_tab.dart';
-import 'package:movies_app/screens/watch_list_tab.dart';
-import 'package:movies_app/shared/network/remote/api_manager.dart';
-import 'package:movies_app/screens/home_tab.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/features/home/presentation/pages/browse_tab.dart';
+import 'package:movies_app/features/home/presentation/pages/home_tab.dart';
+import 'package:movies_app/features/home/presentation/pages/search_tab.dart';
+import 'package:movies_app/features/home/presentation/pages/watch_list_tab.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = "HomeScreen";
-
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int index = 0;
-  List<Results> films = [];
+int index = 0 ;
 
   @override
   Widget build(BuildContext context) {
@@ -48,28 +44,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: ImageIcon(AssetImage("assets/images/ic_watchlist.png")),
                 label: "WatchList"),
           ]),
-      body: FutureBuilder(
-        future: ApiManager.getSources(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return const Center(child: Text("Something went Wrong"));
-          }
-          films = snapshot.data?.results ?? [];
-          return tabs[index];
-        },
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              children: [
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          Expanded(child: tabs[index]),
+        ],
       ),
     );
   }
 
-  late List<Widget> tabs = [
-    HomeTab(
-      results: films,
-    ),
-    const SearchTab(),
-    const BrowseTab(),
-    const WatchListTab(),
-  ];
+
+List<Widget> tabs = [
+  HomeTab(results: [],),
+  const SearchTab(),
+  const BrowseTab(),
+  const WatchListTab()
+];
 }

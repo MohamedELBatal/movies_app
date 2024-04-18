@@ -1,11 +1,11 @@
-class MoviesDataModel {
-  MoviesDataModel({
+class PopularModel {
+  PopularModel({
       this.page, 
       this.results, 
       this.totalPages, 
       this.totalResults,});
 
-  MoviesDataModel.fromJson(dynamic json) {
+  PopularModel.fromJson(dynamic json) {
     page = json['page'];
     if (json['results'] != null) {
       results = [];
