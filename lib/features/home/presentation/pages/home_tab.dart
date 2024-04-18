@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/api/api_manager.dart';
 import 'package:movies_app/core/api/end_points.dart';
 import 'package:movies_app/features/home/data/models/PopularModel.dart';
-import 'package:movies_app/screens/widgets/movie_item.dart';
+import 'package:movies_app/features/home/presentation/widgets/movie_item.dart';
 
 class HomeTab extends StatelessWidget {
   List<Results> results;
