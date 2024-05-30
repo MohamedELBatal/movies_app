@@ -24,6 +24,7 @@ dependencies:
   flutter_bloc: ^8.1.5
   bloc: ^8.1.4
   flutter_screenutil: ^5.9.0
+  carousel_slider: ^4.2.1
   freezed: ^2.5.1
   injectable: ^2.4.1
   get_it: ^7.6.8

@@ -6,9 +6,13 @@ import 'package:movies_app/features/home/data/models/TopRatedModel.dart';
 import 'package:movies_app/features/home/data/models/UpComingModel.dart';
 
 class HomeDsImdpl implements HomeDS {
+  ApiManager apiManager;
+
+  HomeDsImdpl(this.apiManager);
+
   @override
   Future<PopularModel> getPopular() async {
-    ApiManager apiManager = ApiManager();
+
     var response = await apiManager.getData(EndPoints.popular);
 
     PopularModel popularModel=PopularModel.fromJson(response.data);
@@ -17,7 +21,6 @@ class HomeDsImdpl implements HomeDS {
 
   @override
   Future<UpComingModel> getUpComing() async{
-    ApiManager apiManager = ApiManager();
     var response = await apiManager.getData(EndPoints.upComing);
 
     UpComingModel upComingModel =UpComingModel.fromJson(response.data);
