@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,10 +17,10 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   int _currentIndex = 0;
 
-  List<String> imagesUrls = [
-    "https://example.com/image.jpg", // Replace with your image URLs
-    "https://example.com/image2.jpg",
-    "https://example.com/image3.jpg",
+  List<String> images = [
+    "assets/images/1.png",
+    "assets/images/1.png",
+    "assets/images/1.png",
   ];
 
   @override
@@ -52,19 +51,14 @@ class _HomeTabState extends State<HomeTab> {
                         });
                       },
                     ),
-                    items: imagesUrls.map((imageUrl) {
+                    items: images.map((image) {
                       return SizedBox(
                         width: double.infinity,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: CachedNetworkImage(
-                            imageUrl: imageUrl,
+                          child: Image.asset(
+                             image,
                             fit: BoxFit.cover,
-                            placeholder: (context, url) => Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                            errorWidget: (context, url, error) =>
-                            const Center(child: Text('Error Loading Image')),
                           ),
                         ),
                       );
@@ -76,7 +70,7 @@ class _HomeTabState extends State<HomeTab> {
                     right: 0,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: imagesUrls.asMap().entries.map((entry) {
+                      children: images.asMap().entries.map((entry) {
                         int index = entry.key;
                         return Container(
                           width: 10.w,
