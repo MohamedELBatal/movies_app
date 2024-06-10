@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SearchTab extends StatelessWidget {
+  static const String routeName = "Search";
   const SearchTab({super.key});
 
   @override

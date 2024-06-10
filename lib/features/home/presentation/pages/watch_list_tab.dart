@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WatchListTab extends StatelessWidget {
+  static const String routeName = "Watch List";
   const WatchListTab({super.key});
 
   @override

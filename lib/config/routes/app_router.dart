@@ -1,22 +1,35 @@
-
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/components/reuseable_components.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/features/browse/presentation/pages/browse_tab.dart';
 import 'package:movies_app/features/home/presentation/pages/home_screen.dart';
+import 'package:movies_app/features/home/presentation/pages/home_tab.dart';
+import 'package:movies_app/features/home/presentation/pages/search_tab.dart';
+import 'package:movies_app/features/home/presentation/pages/watch_list_tab.dart';
+import 'package:movies_app/features/login/presentation/pages/login.dart';
+import 'package:movies_app/features/signUp/presentation/pages/signup.dart';
 
-class AppRoutesName {
-  static const String home = "/";
-}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-
-class AppRoute {
-
-  static Route onGenerate(RouteSettings settings) {
-    switch (settings.name) {
-      case AppRoutesName.home:
-        return MaterialPageRoute(builder: (context) =>    HomeScreen(),);
-
-      default:
-        return MaterialPageRoute(builder: (context) => unDefineRoute(),);
-    }
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+       initialRoute: HomeScreen.routeName,
+        routes: {
+          HomeScreen.routeName:(context)=>HomeScreen(),
+          BrowseTab.routeName:(context)=> BrowseTab(),
+          SearchTab.routeName:(context)=>const SearchTab(),
+          WatchListTab.routeName:(context)=>const WatchListTab(),
+         HomeTab.routeName:(context)=>HomeTab(results: [], data: [],),
+          SignUpScreen.routeName:(context)=>SignUpScreen(),
+          LoginScreen.routeName:(context)=>LoginScreen(),
+        },
+      ),
+    );
   }
 }

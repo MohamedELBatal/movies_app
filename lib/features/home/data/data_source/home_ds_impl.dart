@@ -5,10 +5,10 @@ import 'package:movies_app/features/home/data/models/PopularModel.dart';
 import 'package:movies_app/features/home/data/models/TopRatedModel.dart';
 import 'package:movies_app/features/home/data/models/UpComingModel.dart';
 
-class HomeDsImdpl implements HomeDS {
+class HomeDsImpl implements HomeDS {
   ApiManager apiManager;
 
-  HomeDsImdpl(this.apiManager);
+  HomeDsImpl(this.apiManager);
 
   @override
   Future<PopularModel> getPopular() async {

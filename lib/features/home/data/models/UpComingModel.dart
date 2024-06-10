@@ -2,7 +2,7 @@ class UpComingModel {
   UpComingModel({
       this.dates, 
       this.page, 
-      this.results, 
+      this.response,
       this.totalPages, 
       this.totalResults,});
 
@@ -10,9 +10,9 @@ class UpComingModel {
     dates = json['dates'] != null ? Dates.fromJson(json['dates']) : null;
     page = json['page'];
     if (json['results'] != null) {
-      results = [];
+      response = [];
       json['results'].forEach((v) {
-        results?.add(Results.fromJson(v));
+        response?.add(Results.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
@@ -20,23 +20,9 @@ class UpComingModel {
   }
   Dates? dates;
   int? page;
-  List<Results>? results;
+  List<Results>? response;
   int? totalPages;
   int? totalResults;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    if (dates != null) {
-      map['dates'] = dates?.toJson();
-    }
-    map['page'] = page;
-    if (results != null) {
-      map['results'] = results?.map((v) => v.toJson()).toList();
-    }
-    map['total_pages'] = totalPages;
-    map['total_results'] = totalResults;
-    return map;
-  }
 
 }
 
@@ -88,25 +74,6 @@ class Results {
   double? voteAverage;
   int? voteCount;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['adult'] = adult;
-    map['backdrop_path'] = backdropPath;
-    map['genre_ids'] = genreIds;
-    map['id'] = id;
-    map['original_language'] = originalLanguage;
-    map['original_title'] = originalTitle;
-    map['overview'] = overview;
-    map['popularity'] = popularity;
-    map['poster_path'] = posterPath;
-    map['release_date'] = releaseDate;
-    map['title'] = title;
-    map['video'] = video;
-    map['vote_average'] = voteAverage;
-    map['vote_count'] = voteCount;
-    return map;
-  }
-
 }
 
 class Dates {
@@ -120,12 +87,5 @@ class Dates {
   }
   String? maximum;
   String? minimum;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['maximum'] = maximum;
-    map['minimum'] = minimum;
-    return map;
-  }
 
 }

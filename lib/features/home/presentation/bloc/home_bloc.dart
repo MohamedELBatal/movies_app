@@ -22,18 +22,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc(
       {required this.getPopularUseCase,
-      required this.getUpComingUseCase,
-      required this.getTopRatedUseCase})
+        required this.getUpComingUseCase,
+        required this.getTopRatedUseCase,})
       : super(const HomeState()) {
     on<GetPopularEvent>((event, emit) async {
       emit(state.copyWith(getPopularStatus: RequestStatus.loading));
       var result = await getPopularUseCase();
       result.fold(
-        (l) {
+            (l) {
           emit(state.copyWith(
               getPopularStatus: RequestStatus.failures, popularFailure: l));
         },
-        (r) {
+            (r) {
           emit(state.copyWith(
               getPopularStatus: RequestStatus.success, popularModel: r));
         },
@@ -47,10 +47,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emit(state.copyWith(
             getUpComingStatus: RequestStatus.failures, upComingFailure: l));
       },
-          (r) => {
-                emit(state.copyWith(
-                    getUpComingStatus: RequestStatus.success, upComingModel: r))
-              });
+              (r) => {
+            emit(state.copyWith(
+                getUpComingStatus: RequestStatus.success, upComingModel: r))
+          });
     });
 
     on<GetTopRatedEvent>((event, emit) async {
@@ -61,10 +61,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emit(state.copyWith(
             getTopRatedStatus: RequestStatus.failures, topRatedFailure: l));
       },
-          (r) => {
-                emit(state.copyWith(
-                    getTopRatedStatus: RequestStatus.success, topRatedModel: r))
-              });
+              (r) => {
+            emit(state.copyWith(
+                getTopRatedStatus: RequestStatus.success, topRatedModel: r))
+          });
     });
   }
 }
