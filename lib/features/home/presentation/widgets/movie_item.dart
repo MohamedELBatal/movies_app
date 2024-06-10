@@ -4,7 +4,7 @@ import 'package:movies_app/features/home/data/models/PopularModel.dart';
 
 
 class MovieItem extends StatelessWidget {
-  Results results;
+  Response results;
 
   MovieItem({required this.results, super.key});
 

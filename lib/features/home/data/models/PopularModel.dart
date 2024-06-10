@@ -1,31 +1,31 @@
 class PopularModel {
   PopularModel({
       this.page, 
-      this.results, 
+      this.data,
       this.totalPages, 
       this.totalResults,});
 
   PopularModel.fromJson(dynamic json) {
     page = json['page'];
     if (json['results'] != null) {
-      results = [];
+      data = [];
       json['results'].forEach((v) {
-        results?.add(Results.fromJson(v));
+        data?.add(Response.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
   }
   int? page;
-  List<Results>? results;
+  List<Response>? data;
   int? totalPages;
   int? totalResults;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['page'] = page;
-    if (results != null) {
-      map['results'] = results?.map((v) => v.toJson()).toList();
+    if (data != null) {
+      map['results'] = data?.map((v) => v.toJson()).toList();
     }
     map['total_pages'] = totalPages;
     map['total_results'] = totalResults;
@@ -34,8 +34,8 @@ class PopularModel {
 
 }
 
-class Results {
-  Results({
+class Response {
+  Response({
       this.adult, 
       this.backdropPath, 
       this.genreIds, 
@@ -51,7 +51,7 @@ class Results {
       this.voteAverage, 
       this.voteCount,});
 
-  Results.fromJson(dynamic json) {
+  Response.fromJson(dynamic json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'] != null ? json['genre_ids'].cast<int>() : [];
