@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:movies_app/features/browse/presentation/pages/browse_tab.dart';
 import 'package:movies_app/features/home/presentation/pages/home_tab.dart';
-import 'package:movies_app/features/home/presentation/pages/search_tab.dart';
-import 'package:movies_app/features/home/presentation/pages/watch_list_tab.dart';
+import 'package:movies_app/search_tab.dart';
+import 'package:movies_app/watch_list_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "homeScreen";
@@ -70,6 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     const SearchTab(),
      BrowseTab(),
-    const WatchListTab()
+    const WatchListTab(watchlist: [],)
   ];
 }
