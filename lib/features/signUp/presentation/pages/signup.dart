@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/enum/enums.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
-import 'package:movies_app/features/home/presentation/pages/home_screen.dart';
+import 'package:movies_app/home_screen.dart';
 import 'package:movies_app/features/home/presentation/pages/home_tab.dart';
 import 'package:movies_app/features/login/presentation/pages/login.dart';
 import 'package:movies_app/features/signUp/data/data_sources/signup_ds_impl.dart';

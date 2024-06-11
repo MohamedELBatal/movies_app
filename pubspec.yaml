@@ -27,6 +27,7 @@ dependencies:
   flutter_screenutil: ^5.9.0
   carousel_slider: ^4.2.1
   freezed: ^2.5.1
+  flutter_image_slideshow: ^0.1.6
   injectable: ^2.4.1
   get_it: ^7.6.8
   freezed_annotation: ^2.4.1
