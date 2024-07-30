@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/features/home/data/models/PopularModel.dart';
 import 'package:movies_app/features/home/data/models/TopRatedModel.dart';
 import 'package:movies_app/features/home/presentation/bloc/home_bloc.dart';
+import 'package:movies_app/features/home/presentation/pages/movies_details.dart';
 
 import '../../../../core/api/api_manager.dart';
 import '../../data/data_source/home_ds_impl.dart';
@@ -113,6 +114,7 @@ class _HomeTabState extends State<HomeTab> {
                                 child: CircularProgressIndicator(),
                               ),
                             ),
+
                     ],
                   ),
                 ),
