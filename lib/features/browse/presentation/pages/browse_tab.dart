@@ -40,12 +40,12 @@ class _BrowseTabState extends State<BrowseTab> {
         builder: (context, state) {
           return Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(30.0),
+              const Padding(
+                padding: EdgeInsets.all(30.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(top: 50.0),
                       child: Text(
                         "Browse Category",
@@ -56,16 +56,16 @@ class _BrowseTabState extends State<BrowseTab> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    SizedBox(height: 25),
                   ],
                 ),
               ),
               Expanded(
                 child: state.browseModel?.genres == null
-                    ? Center(child: CircularProgressIndicator())
+                    ? const Center(child: CircularProgressIndicator())
                     : GridView.builder(
                   itemCount: state.browseModel!.genres!.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: (192 / 250),
                     crossAxisCount: 2,
                     mainAxisSpacing: 16,
