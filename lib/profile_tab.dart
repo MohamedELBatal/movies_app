@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/features/login/presentation/pages/login.dart';
 
 class ProfileTab extends StatelessWidget {
   ProfileTab({super.key});
@@ -58,39 +59,59 @@ class ProfileTab extends StatelessWidget {
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             context: context,
                             builder: (context) => Container(
-                            color: Colors.grey,
-                            height: MediaQuery.of(context).size.height *0.2,
-                            width: MediaQuery.of(context).size.width ,
-                            child:  Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 30),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  InkWell(
-                                    onTap: (){},
-                                    child: const Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text("Camera",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
-                                        Icon(Icons.camera_alt_outlined,size: 25)
-                                      ],
+                              color: Colors.grey,
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 30),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {},
+                                      child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Camera",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Icon(Icons.camera_alt_outlined,
+                                              size: 25)
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 30,),
-                                  InkWell(
-                                    onTap: (){},
-                                    child: const Row(
-                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text("Gallery",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
-                                        Icon(Icons.photo_library_outlined,size: 25,)
-                                      ],
+                                    const SizedBox(
+                                      height: 30,
                                     ),
-                                  )
-                                ],
+                                    InkWell(
+                                      onTap: () {},
+                                      child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Gallery",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Icon(
+                                            Icons.photo_library_outlined,
+                                            size: 25,
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),);
+                          );
                         },
                         child: Container(
                           height: 40,
@@ -98,7 +119,7 @@ class ProfileTab extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
-                            border: Border.all(color: Colors.white,width: 2),
+                            border: Border.all(color: Colors.white, width: 2),
                           ),
                           child: const Icon(
                             Icons.photo_camera,
@@ -218,7 +239,22 @@ class ProfileTab extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 15,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginScreen.routeName);
+                  },
+                  style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.red),
+                  ),
+                  child: const Text(
+                    "Log Out",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ),
             ],
           ),
